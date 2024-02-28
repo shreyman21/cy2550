@@ -24,10 +24,10 @@ fostrie:gladeye
 ninjakeeper:Britisher
 liciolog:Garcons
 cutezee:Antichurch
-prewarned7       (onev2)
-unquiets9        (flightgo)
-desertions6      (thebestrena)
-Casein9          (hipurcedree)
-Syndromic9       (royalcortli)
-Shasliks5        (prodott)
-Sapajous0        (tasticsupreme)
+onev2:prewarned7
+flightgo:unquiets9
+thebestrena:desertions6
+hipurcedree:Casein9
+royalcortli:Syndromic9
+tasticsupreme:Sapajous0
+prodott:Shasliks5
