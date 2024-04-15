@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'frontend/base.html' %}
+{% block content %}
+{% if logged_in %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style type ="text/css" >
+            .footer{ 
+                position: fixed;     
+                text-align: center;    
+                bottom: 0.5rem; 
+                width: 100%;
+            }  
+         </style>
+         
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1 style="margin:1rem">Welcome to the Shmoury College of Computer Science!</h1>
+        <h3 style="margin:1rem">Here at Shmoury, we are pioneers of security excellence.</h3>
+        <h6 style="margin:1rem">Welcome to our state-of-the-art website! Our site allows you to apply for scholarships, apply for TA positions, submit feedback, and more! For any questions about Shmoury or bugs, contact our main administrator Christo Wilson at <b>cbw@shmoury.edu</b>!</h6><br>
+    
+
+        {% load static %}
+        <h7 style="margin:1rem"><a href="{% static 'shmoury_assets/decrypting_xor_x86'%}" download>This binary</a> for x86 architecture machines does funny things... Maybe you can ask it for the flag??</h7><br />
+        <h7 style="margin:1rem"><a href="{% static 'shmoury_assets/decrypting_xor_arm64'%}" download>This binary</a> for arm64 architecture(M series Macbooks) machines does funny things... Maybe you can ask it for the flag??</h7><br /><br /><br />
+        <h8 style="margin:1rem">Can you find the secret message hidden in this image below?</h8><br>
+        <img src="{% static 'shmoury_assets/khoury.jpg' %}" style="margin:1rem">
+        <p hidden>Psst...this isn't really a secure site. Good job being nosy! Here's your flag: Flag{WEBCTF_welc0m3_h0m3}</p>
+        
+        {% if not correct_password %}
+        <h3>Congrats on the SQL injection!</h3> ALWAYS check inputs for SQL injection whenever the user input is used for SQL statements! Here's your flag: Flag{WEBCTF_Insert_SQL_HERE_xD}
+        {% endif %}
+    </body>
+    <div class="footer">Bootstrap 4.0 theme taken from <b>https://getbootstrap.com/</b></div>
+</html>
+{% else %}
+<p style="margin:1rem">You are not logged in</p>
+<a href="/login" style="margin:1rem">Log In</a>
+
+{% endif %}
+{% endblock %}

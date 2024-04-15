@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'frontend/base.html' %}
+{% block content %}
+
+{% if logged_in %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% if greater_than_max %}
+        <h1 style="margin:1rem">Whoa there buddy!</h1> 
+        <h3 style="margin:1rem">You've submitted too many hours. Make sure they're less than 20!</h3> 
+
+        {% elif not greater_than_max and max_greater_than_20 %}
+        <h1 style="margin:1rem">Hours successfully submitted!</h1>
+        <h3 style="margin:1rem">... and you've submitted more than 20 hours this week!</h3>
+        Nice job gaming the system. If you have the right tools and know the right place to look, hidden values in HTML submissions can be modified. Never depend on them for security purposes! Here's your flag: Flag{WEBCTF_Burrrrrrrrrrrrrp!}
+        {% else %}
+        <h1 style="margin:1rem">Hours successfully submitted!</h1>
+        <h3 style="margin:1rem">Thanks for being such an honest and hardworking TA. You'd NEVER game our system unethically.</h3>
+        {% endif %}
+
+        
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
+
+{% else %}
+<p>You are not logged in</p>
+<a href="/login">Log In</a>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'frontend/base.html' %}
+{% block content %}
+
+{% if logged_in %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Shmoury Scholarships {{next_year}}: Meeting Cooper Award</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1 style="margin:1rem">Meeting Cooper is its own reward.</h1>
+        <h3 style="margin:1rem">But here are some pictures of Cooper for your efforts.</h3>
+        
+        <a style="margin:1rem">
+        {% load static %}
+        <img width="600" src="{% static 'shmoury_assets/cooper-so-cute.jpeg' %}">
+        <img width="600" src="{% static 'shmoury_assets/cooper-birthday.jpeg' %}">
+        <img width="600" src="{% static 'shmoury_assets/cooper-baby.webp' %}">
+        <img width="600" src="{% static 'shmoury_assets/wheres-cooper.jpeg' %}">
+        <img width="600" src="{% static 'shmoury_assets/baseball-cooper.jpeg' %}">
+        <img width="600" src="{% static 'shmoury_assets/cooper-graduation.jpg' %}">
+        </a>
+        
+        <br>
+        you're so welcome
+    </body>
+</html>
+
+{% else %}
+<p>You are not logged in</p>
+<a href="/login">Log In</a>
+{% endif %}
+{% endblock %}

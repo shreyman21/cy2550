@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'frontend/base.html' %}
+{% block content %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title style="margin:1rem">Submit Shmoury Hours</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <h1 style="margin:1rem">Shmoury TA Hours Submission Page</h1>
+        <h3 style="margin:1rem">Are you a TA and need to submit hours? Do that all here!</h3>
+        <p style="margin:1rem"><b>Remember:</b> you can submit a maximum of <b>20 hours</b> per week.</p>
+
+        <form action="{% url 'frontend:submit_hours_submit'%}" method="post" style="margin:1rem">
+            {% csrf_token %}
+            <label for="fname">Sunday</label><br>
+            <input type="number" id="sunday" name="sunday" min=0 value=0><br><br>
+            <label for="fname">Monday</label><br>
+            <input type="number" id="monday" name="monday" min=0 value=0><br><br>
+            <label for="fname">Tuesday</label><br>
+            <input type="number" id="tuesday" name="tuesday" min=0 value=0><br><br>
+            <label for="fname">Wednesday</label><br>
+            <input type="number" id="wednesday" name="wednesday" min=0 value=0><br><br>
+            <label for="fname">Thursday</label><br>
+            <input type="number" id="thursday" name="thursday" min=0 value=0><br><br>
+            <label for="fname">Friday</label><br>
+            <input type="number" id="friday" name="friday" min=0 value=0><br><br>
+            <label for="fname">Saturday</label><br>
+            <input type="number" id="saturday" name="saturday" min=0 value=0>
+            <input type="hidden" id="max_hours" name="max_hours"  value=20 value=0><br><br>
+
+        <input type="submit" value="Submit">
+
+        <script src="" async defer></script>
+    </body>
+</html>
+{% endblock %}

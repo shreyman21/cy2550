@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+{% extends 'frontend/base.html' %}
+{% block content %}
+{% if logged_in %}
+<h1 style="margin:1rem">TA Application Portal</h1>
+
+<form margin-left action="{% url 'frontend:ta_application_results'%}" method="post" style="margin:1rem">
+  {% csrf_token %}
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" required><br><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" required><br><br>
+  <label for="lname">TA Class:</label><br>
+  <select name="classes" id="classes" required>
+    <option disabled selected value>--</option>
+    <option value="CY2550">CY2550</option>
+    <option value="CY2550">CY2550</option>
+    <option value="CS1800">CS1800</option>
+    <option value="CS2160">CS2025</option>
+    <option value="CS3010">CS3010</option>
+    <option value="CS4040">CS3010</option>
+  </select><br><br>
+  <label for="essay">Why are you a fit for this position?</label><br>
+  <textarea id="essay" name="essay" rows="5" cols="50" required></textarea><br><br><br>
+  Sorry! Submission is only available to qualified students.<br><br>
+  <input type="submit" value="Submit" disabled="true">
+</form>
+
+
+</body>
+</html>
+
+{% else %}
+<p style="margin:1rem">You are not logged in</p>
+<a href="/login" style="margin:1rem">Log In</a>
+{% endif %}
+{% endblock %}

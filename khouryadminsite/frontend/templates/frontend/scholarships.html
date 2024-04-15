@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+{% extends 'frontend/base.html' %}
+{% block content %}
+
+{% if logged_in %}
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title style="margin:1rem">Shmoury Scholarships</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1 style="margin:1rem">Shmoury Scholarships {{year}}</h1>
+        <h3 style="margin:1rem">Apply for super cool scholarships here!</h3>
+        <h5 style="margin:1rem">Please note: all the scholarship applications for {{year}} are closed. </h5>
+        <br>
+        <a style="margin:1rem">Scholarships for {{next_year}} will be available: <b>in 5 months.</b></a>
+        <dl style="margin:1rem">
+            <dt>The Sparkbear Award</dt>
+            <dd>Awarded to the student who can actually crack sparkbear. Learn more <a href="{% url 'frontend:scholarships_too_late'%}">here.</a></dd><br>
+            <dt>The "Just Because" Award {{this_year}}</dt>
+            <dd>Awarded to the first student to click on the link. That's it. Learn more <a href="{% url 'frontend:scholarships_too_late'%}">here.</a></dd><br>
+            <dt>The I've Met Cooper Award</dt>
+            <dd>Awarded to the student who's met Cooper, the Community Resource Dog of Northeastern University. Learn more <a href="{% url 'frontend:scholarships_too_late'%}">here.</a> </dd><br>
+          </dl>
+    </body>
+</html>
+
+{% else %}
+<p style="margin:1rem">You are not logged in</p>
+<a href="/login" style="margin:1rem">Log In</a>
+{% endif %}
+{% endblock %}
